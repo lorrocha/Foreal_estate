@@ -13,19 +13,18 @@ feature 'User can add a building', %q{
   # Upon successfully creating a building, I am redirected so that I can record another building.
 
   def successful_building
-    fill_in 'Street Address', with: '24 Hancock St.'
+    fill_in 'Street address', with: '24 Hancock St.'
     fill_in 'City', with: 'Weymouth'
     select 'Massachusetts', from: 'State'
     fill_in 'Postal code', with: '12345'
-    click_button 'Create building'
+    click_button 'Create Building'
   end
 
   scenario 'User can successfully create a building' do
     visit '/buildings'
     click_on 'Add New Listing'
-
     successful_building
-
+    save_and_open_page
     expect(page).to have_content 'Building was successfully created'
   end
 
@@ -33,7 +32,7 @@ feature 'User can add a building', %q{
     visit '/buildings'
     click_on 'Add New Listing'
 
-    click_button 'Create building'
+    click_button 'Create Building'
     expect(page).to have_content("can't be blank")
   end
 
