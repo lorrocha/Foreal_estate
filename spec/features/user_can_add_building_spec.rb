@@ -24,7 +24,7 @@ feature 'User can add a building', %q{
     visit '/buildings'
     click_on 'Add New Listing'
     successful_building
-    save_and_open_page
+
     expect(page).to have_content 'Building was successfully created'
   end
 
