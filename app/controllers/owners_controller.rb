@@ -17,6 +17,13 @@ class OwnersController < ApplicationController
     end
   end
 
+  def destroy
+    @owner = Owner.find(params[:id])
+    if @owner.destroy
+      redirect_to owners_path, notice: "#{@owner.fullname} was removed from the database"
+    end
+  end
+
   private
   def owner_params
     params.require(:owner).permit(:first_name,:last_name,:company,:email)

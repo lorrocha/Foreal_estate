@@ -1,5 +1,6 @@
 <% @buildings.each do |building| %>
-  <div><%= "#{building.street_address}, #{building.city}, #{building.state}" %></div>
+  <div><%= link_to "#{building.street_address} ", building_path(building)%> <%= "#{building.city}, #{building.state}" %>
+  </div>
 <% end %>
 
 <%= link_to 'Add New Listing', new_building_path %>

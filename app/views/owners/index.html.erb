@@ -1,5 +1,6 @@
 <% @owners.each do |owner| %>
   <%= "#{owner.first_name} #{owner.last_name}" %>
+  <%= link_to 'Delete', owner_path(owner), method: :delete %>
 <% end %>
 
 <%= link_to 'Add New Owner', new_owner_path %>

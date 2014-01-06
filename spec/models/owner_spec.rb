@@ -9,4 +9,6 @@ describe Owner do
 
   it {should have_valid(:email).when('Dilbert@yahoo.com')}
   it {should_not have_valid(:email).when('', nil, 'wazzaup', 'something@something@ef.com', 'something.com', 'something @something.com')}
+
+  it {should have_many(:buildings)}
 end

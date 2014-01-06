@@ -1,7 +1,7 @@
 RealEstate::Application.routes.draw do
-  resources :buildings, only: [:index, :new, :create]
+  resources :buildings, only: [:index, :new, :create, :show]
 
-  resources :owners, only: [:index, :new, :create]
+  resources :owners, only: [:index, :new, :create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

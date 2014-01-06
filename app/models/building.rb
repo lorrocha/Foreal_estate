@@ -9,9 +9,10 @@ class Building < ActiveRecord::Base
 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
   end
 
-v_states = Building.valid_states
+  v_states = Building.valid_states
   validates_presence_of :street_address
   validates_presence_of :city
   validates_numericality_of :postal_code, only_integer: true
   validates_inclusion_of :state, in: v_states
+  belongs_to :owner, inverse_of: :buildings
 end

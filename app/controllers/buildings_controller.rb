@@ -6,6 +6,7 @@ class BuildingsController < ApplicationController
 
   def new
     @building = Building.new
+    @owners = Owner.all
   end
 
   def create
@@ -17,9 +18,13 @@ class BuildingsController < ApplicationController
     end
   end
 
+  def show
+    @building = Building.find(params[:id])
+  end
+
   private
 
   def building_params
-    params.require(:building).permit(:street_address,:description, :city, :state, :postal_code)
+    params.require(:building).permit(:owner_id,:street_address,:description, :city, :state, :postal_code)
   end
 end

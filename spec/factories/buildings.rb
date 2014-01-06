@@ -6,5 +6,7 @@ FactoryGirl.define do
     city "Everett"
     state "Massachusetts"
     postal_code 02
+
+    owner
   end
 end

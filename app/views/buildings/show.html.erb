@@ -1,0 +1,7 @@
+<h2><%= @building.street_address %></h2>
+<div><%= @building.city%></div>
+<div><%= @building.state%></div>
+<div><%= @building.postal_code%></div>
+<div><%= @building.owner.fullname unless @building.owner.nil?%></div>
+
+<p> <%= @building.description %></p>
