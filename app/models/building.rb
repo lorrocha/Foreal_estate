@@ -1,11 +1,6 @@
 class Building < ActiveRecord::Base
-  validates_presence_of :street_address
-  validates_presence_of :city
-  validates_numericality_of :postal_code, only_integer: true
-  validates_presence_of :state
-
   def self.valid_states
-    ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut',
+['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut',
 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa',
 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan',
 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
@@ -14,4 +9,9 @@ class Building < ActiveRecord::Base
 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
   end
 
+v_states = Building.valid_states
+  validates_presence_of :street_address
+  validates_presence_of :city
+  validates_numericality_of :postal_code, only_integer: true
+  validates_inclusion_of :state, in: v_states
 end
