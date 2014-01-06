@@ -1,0 +1,5 @@
+<% @owners.each do |owner| %>
+  <%= "#{owner.first_name} #{owner.last_name}" %>
+<% end %>
+
+<%= link_to 'Add New Owner', new_owner_path %>
